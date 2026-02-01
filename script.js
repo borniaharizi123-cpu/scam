@@ -63,15 +63,17 @@ if (params.get("from") === "welcome") {
 
 const messages = [
     "Are you sure?",
-    "Really sure??",
-    "Are you positive?",
+    "Hot.",
+    "Look at the pug??",
+    "You are saying no to the pug???????",
     "Pookie please...",
+    "But Poopppppie please...",
     "Just think about it!",
     "If you say no, I will be really sad...",
     "I will be very sad...",
     "I will be very very very sad...",
     "Ok fine, I will stop asking...",
-    "Just kidding, say yes please! ❤️"
+    "Just kidding, say yes Habibi! "
 ];
 
 let messageIndex = 0;
