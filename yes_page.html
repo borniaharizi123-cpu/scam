@@ -19,28 +19,28 @@
     <audio id="yesMusic" src="yes.mp3" loop autoplay></audio>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <script>
-  function fireConfetti() {
+  function chaosConfetti() {
     confetti({
-      particleCount: 160,
-      spread: 90,
-      origin: { y: 0.6 }
+      particleCount: 25,
+      spread: 120,
+      startVelocity: 45,
+      gravity: 0.9,
+      ticks: 300,
+      origin: {
+        x: Math.random(),
+        y: Math.random() * 0.6
+      }
     });
 
-    confetti({
-      particleCount: 120,
-      spread: 120,
-      origin: { y: 0.2 }
-    });
+    requestAnimationFrame(chaosConfetti);
   }
 
-  // Fire immediately when YES page loads
-  fireConfetti();
-
-  // Extra celebration bursts
-  setTimeout(fireConfetti, 500);
-  setTimeout(fireConfetti, 1200);
+  chaosConfetti();
 </script>
+
+
 
 </body>
     
