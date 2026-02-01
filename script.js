@@ -53,6 +53,17 @@
     }
 })();
 */
+const bgMusic = document.getElementById("bgMusic");
+
+function startMusicOnce() {
+    bgMusic.play().catch(() => {});
+    document.removeEventListener("click", startMusicOnce);
+    document.removeEventListener("touchstart", startMusicOnce);
+}
+
+document.addEventListener("click", startMusicOnce);
+document.addEventListener("touchstart", startMusicOnce, { passive: true });
+
 const messages = [
     "Are you sure?",
     "Really sure??",
@@ -114,5 +125,9 @@ noBtn.addEventListener("click", (e) => {
 
 
 function handleYesClick() {
+    if (bgMusic) {
+        bgMusic.pause();
+        bgMusic.currentTime = 0;
+    }
     window.location.href = "yes_page.html";
 }
