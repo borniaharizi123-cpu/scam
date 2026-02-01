@@ -54,15 +54,12 @@
 })();
 */
 const bgMusic = document.getElementById("bgMusic");
+const params = new URLSearchParams(window.location.search);
 
-function startMusicOnce() {
-    bgMusic.play().catch(() => {});
-    document.removeEventListener("click", startMusicOnce);
-    document.removeEventListener("touchstart", startMusicOnce);
+if (params.get("from") === "welcome") {
+  bgMusic.play().catch(() => {});
 }
 
-document.addEventListener("click", startMusicOnce);
-document.addEventListener("touchstart", startMusicOnce, { passive: true });
 
 const messages = [
     "Are you sure?",
