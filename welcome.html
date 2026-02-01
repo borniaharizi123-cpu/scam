@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello</title>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #fdecec;
+      font-family: sans-serif;
+    }
+    button {
+      font-size: 24px;
+      padding: 16px 32px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <audio id="bgMusic" src="audio.mp3" loop></audio>
+
+  <button id="enterBtn">Hello 💖</button>
+
+  <script>
+    const music = document.getElementById("bgMusic");
+    const btn = document.getElementById("enterBtn");
+
+    btn.addEventListener("click", async () => {
+      try {
+        await music.play(); // user gesture → allowed
+      } catch (e) {}
+
+      // give browser time to lock audio
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 150);
+    });
+  </script>
+
+</body>
+</html>
