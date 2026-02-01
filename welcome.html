@@ -2,15 +2,98 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Welcome</title>
+  <title>Hello 💕</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      font-family: "Comic Sans MS", "Poppins", sans-serif;
+    }
+
+    .card {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      animation: popIn 0.6s ease;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 28px;
+      color: #e75480;
+    }
+
+    p {
+      margin: 0 0 25px;
+      color: #555;
+      font-size: 16px;
+    }
+
+    button {
+      font-size: 20px;
+      padding: 14px 36px;
+      border: none;
+      border-radius: 999px;
+      background: #e75480;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      box-shadow: 0 8px 20px rgba(231, 84, 128, 0.4);
+    }
+
+    button:hover {
+      transform: scale(1.08);
+      box-shadow: 0 12px 30px rgba(231, 84, 128, 0.6);
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+
+    .hearts {
+      position: absolute;
+      top: 20px;
+      width: 100%;
+      text-align: center;
+      font-size: 24px;
+      opacity: 0.6;
+    }
+
+    @keyframes popIn {
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  </style>
 </head>
 <body>
-  <button id="enterBtn">Welcome</button>
+
+  <div class="hearts">💖 💕 💘 💝 💞</div>
+
+  <div class="card">
+    <h1>Hello you 💘</h1>
+    <p>I have a very important question for you…</p>
+    <button id="enterBtn">Enter</button>
+  </div>
 
   <script>
     document.getElementById("enterBtn").addEventListener("click", () => {
       window.location.href = "index.html?from=welcome";
     });
   </script>
+
 </body>
 </html>
