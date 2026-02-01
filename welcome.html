@@ -107,6 +107,21 @@
         transform: scale(0.9);
       }
     }
+    .video-wrapper {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.video-wrapper video {
+  width: 100%;
+  max-width: 280px;
+  aspect-ratio: 9 / 16;   /* portrait video */
+  object-fit: cover;
+  border-radius: 16px;
+}
+
   </style>
 </head>
 <body>
@@ -122,17 +137,18 @@
     <h1>Ciao principessa 💕</h1>
     <p>Ho una domanda importante per te…</p>
     <button id="enterBtn">OPEN THE DOOR</button>
-    <video
-      id="welcomeVideo"
-      src="video.mp4"
-      autoplay
-      loop
-      muted
-      playsinline
-      style="width: 100%; max-width: 320px; margin-top: 20px; border-radius: 16px;">
-</video>
-
   </div>
+  <div class="video-wrapper">
+  <video
+    id="welcomeVideo"
+    src="video.mp4"
+    autoplay
+    muted
+    loop
+    playsinline
+  ></video>
+</div>
+
 
   <script>
     document.getElementById("enterBtn").addEventListener("click", () => {
