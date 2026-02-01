@@ -92,9 +92,6 @@ function handleNoClick() {
     noBtn.textContent = messages[messageIndex];
     messageIndex = (messageIndex + 1) % messages.length;
 
-    // Grow the Yes button
-    const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
-    yesButton.style.fontSize = `${currentSize * 1.25}px`;
 
     // Run away
     moveNoButton();
