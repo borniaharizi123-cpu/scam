@@ -2,96 +2,135 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Hello 💕</title>
+  <title>Ciao principessa 💕</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     body {
       margin: 0;
       height: 100vh;
+      overflow: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
       background: linear-gradient(135deg, #ffdde1, #ee9ca7);
-      font-family: "Comic Sans MS", "Poppins", sans-serif;
+      font-family: "Poppins", sans-serif;
     }
 
+    /* Floating hearts */
+    .heart {
+      position: absolute;
+      bottom: -40px;
+      font-size: 24px;
+      animation: floatUp linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+      }
+      to {
+        transform: translateY(-110vh) scale(1.4);
+        opacity: 0;
+      }
+    }
+
+    /* Card */
     .card {
       background: white;
-      padding: 40px 30px;
-      border-radius: 20px;
+      padding: 42px 32px;
+      border-radius: 24px;
       text-align: center;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-      animation: popIn 0.6s ease;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+      animation: popIn 0.8s cubic-bezier(.25,1.5,.5,1);
+      z-index: 2;
+    }
+
+    @keyframes popIn {
+      from {
+        transform: scale(0.6) translateY(40px);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+      }
     }
 
     h1 {
-      margin: 0 0 10px;
-      font-size: 28px;
+      margin: 0 0 12px;
+      font-size: 30px;
       color: #e75480;
     }
 
     p {
-      margin: 0 0 25px;
+      margin: 0 0 28px;
       color: #555;
       font-size: 16px;
     }
 
+    /* Button */
     button {
       font-size: 20px;
-      padding: 14px 36px;
+      padding: 14px 40px;
       border: none;
       border-radius: 999px;
       background: #e75480;
       color: white;
       cursor: pointer;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-      box-shadow: 0 8px 20px rgba(231, 84, 128, 0.4);
+      box-shadow: 0 10px 25px rgba(231, 84, 128, 0.5);
+      animation: heartbeat 1.6s infinite;
+      transition: transform 0.15s ease;
     }
 
     button:hover {
-      transform: scale(1.08);
-      box-shadow: 0 12px 30px rgba(231, 84, 128, 0.6);
+      transform: scale(1.1);
     }
 
-    button:active {
-      transform: scale(0.95);
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      20% { transform: scale(1.08); }
+      40% { transform: scale(1); }
+      60% { transform: scale(1.08); }
     }
 
-    .hearts {
-      position: absolute;
-      top: 20px;
-      width: 100%;
-      text-align: center;
-      font-size: 24px;
-      opacity: 0.6;
+    /* Fade out on click */
+    .fade-out {
+      animation: fadeOut 0.5s forwards;
     }
 
-    @keyframes popIn {
-      from {
-        transform: scale(0.8);
-        opacity: 0;
-      }
+    @keyframes fadeOut {
       to {
-        transform: scale(1);
-        opacity: 1;
+        opacity: 0;
+        transform: scale(0.9);
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="hearts">💖 💕 💘 💝 💞</div>
+  <!-- Floating hearts -->
+  <span class="heart" style="left:10%; animation-duration:8s;">💖</span>
+  <span class="heart" style="left:25%; animation-duration:10s;">💘</span>
+  <span class="heart" style="left:40%; animation-duration:9s;">💕</span>
+  <span class="heart" style="left:60%; animation-duration:11s;">💝</span>
+  <span class="heart" style="left:75%; animation-duration:8.5s;">💞</span>
 
-  <div class="card">
-    <h1>Hello you 💘</h1>
-    <p>I have a very important question for you…</p>
+  <div class="card" id="card">
+    <h1>Ciao principessa 💕</h1>
+    <p>Ho una domanda importante per te…</p>
     <button id="enterBtn">Enter</button>
   </div>
 
   <script>
     document.getElementById("enterBtn").addEventListener("click", () => {
-      window.location.href = "index.html?from=welcome";
+      document.getElementById("card").classList.add("fade-out");
+
+      setTimeout(() => {
+        window.location.href = "index.html?from=welcome";
+      }, 500);
     });
   </script>
 
