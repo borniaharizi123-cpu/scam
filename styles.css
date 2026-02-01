@@ -34,26 +34,29 @@ body {
   }
   
   .no-button {
-    font-size: 1.5em;
-    padding: 10px 20px;
-    background-color: #f44336;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: left 0.15s ease, top 0.15s ease;
-  }
+  font-size: 1.5em;
+  padding: 10px 20px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: left 0.15s ease, top 0.15s ease;
+  will-change: transform;
+}
+
 .no-button:hover {
-  animation: shake 0.4s infinite;
+  animation: shake 0.2s infinite;
 }
 
 @keyframes shake {
-  0%   { transform: translateX(0); }
-  25%  { transform: translateX(-4px); }
-  50%  { transform: translateX(4px); }
-  75%  { transform: translateX(-4px); }
-  100% { transform: translateX(0); }
+  0%   { transform: translateX(0) rotate(0deg); }
+  25%  { transform: translateX(-4px) rotate(-2deg); }
+  50%  { transform: translateX(4px) rotate(2deg); }
+  75%  { transform: translateX(-4px) rotate(-2deg); }
+  100% { transform: translateX(0) rotate(0deg); }
 }
+
 
 
   
