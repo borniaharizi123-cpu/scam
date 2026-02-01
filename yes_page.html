@@ -17,5 +17,31 @@
         </div>
     </div>
     <audio id="yesMusic" src="yes.mp3" loop autoplay></audio>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script>
+  function fireConfetti() {
+    confetti({
+      particleCount: 160,
+      spread: 90,
+      origin: { y: 0.6 }
+    });
+
+    confetti({
+      particleCount: 120,
+      spread: 120,
+      origin: { y: 0.2 }
+    });
+  }
+
+  // Fire immediately when YES page loads
+  fireConfetti();
+
+  // Extra celebration bursts
+  setTimeout(fireConfetti, 500);
+  setTimeout(fireConfetti, 1200);
+</script>
+
 </body>
+    
 </html>
