@@ -62,6 +62,7 @@ if (params.get("from") === "welcome") {
 
 
 const messages = [
+    "MARIOOOOOOOO",
     "Are you sure?",
     "Hot.",
     "Look at the pug??",
