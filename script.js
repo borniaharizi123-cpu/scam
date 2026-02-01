@@ -68,14 +68,53 @@ const messages = [
 
 let messageIndex = 0;
 
-function handleNoClick() {
-    const noButton = document.querySelector('.no-button');
-    const yesButton = document.querySelector('.yes-button');
-    noButton.textContent = messages[messageIndex];
-    messageIndex = (messageIndex + 1) % messages.length;
-    const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
-    yesButton.style.fontSize = `${currentSize * 1.5}px`;
+const noBtn = document.getElementById("noBtn");
+
+function moveNoButton() {
+    const padding = 20;
+    noBtn.style.position = "fixed";
+
+    const rect = noBtn.getBoundingClientRect();
+    const maxX = window.innerWidth - rect.width - padding;
+    const maxY = window.innerHeight - rect.height - padding;
+
+    const x = Math.max(padding, Math.random() * maxX);
+    const y = Math.max(padding, Math.random() * maxY);
+
+    noBtn.style.left = `${x}px`;
+    noBtn.style.top = `${y}px`;
 }
+
+function handleNoClick() {
+    const yesButton = document.querySelector('.yes-button');
+
+    // Update message on the No button
+    noBtn.textContent = messages[messageIndex];
+    messageIndex = (messageIndex + 1) % messages.length;
+
+    // Grow the Yes button
+    const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
+    yesButton.style.fontSize = `${currentSize * 1.25}px`;
+
+    // Run away
+    moveNoButton();
+}
+
+// Desktop: run away when mouse gets near
+noBtn.addEventListener("mouseenter", handleNoClick);
+
+// Mobile: run away when user tries to tap
+noBtn.addEventListener("touchstart", (e) => {
+    e.preventDefault();
+    handleNoClick();
+}, { passive: false });
+
+// Optional: if user somehow clicks it, still run away
+noBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    handleNoClick();
+});
+
 
 function handleYesClick() {
     window.location.href = "yes_page.html";
